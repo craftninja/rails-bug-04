@@ -11,6 +11,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to root_path, notice: "Task was created successfully!"
     else
+      @task_list = TaskList.find(params[:task_list_id])
       render :new
     end
   end
